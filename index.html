@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#070707">
+  <meta name="description" content="Faqat sen uchun tayyorlangan maxsus xotiralar va sirli sarguzasht.">
+
+  <title>One Special Surprise ♡</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- INTRO -->
+  <section id="intro" class="intro">
+    <div class="intro-glow"></div>
+
+    <div class="intro-content">
+      <div class="intro-symbol">✦</div>
+
+      <p class="small-title">A LITTLE SURPRISE</p>
+
+      <h1>Bitta kichik<br><span>hikoya.</span></h1>
+
+      <p class="intro-text">
+        Bu oddiy sahifa emas. Oldinda seni bir nechta
+        xotiralar va kichik sir kutmoqda.
+      </p>
+
+      <button id="startBtn" class="start-btn">
+        <span>Sarguzashtni boshlash</span>
+        <span class="arrow">→</span>
+      </button>
+    </div>
+
+    <div class="scroll-hint">MADE WITH CARE ♡</div>
+  </section>
+
+
+  <!-- MAIN APP -->
+  <main id="experience" class="experience hidden">
+    <div class="ambient-bg"></div>
+
+    <!-- HEADER -->
+    <header class="top-bar">
+      <div class="brand">OUR LITTLE UNIVERSE ♡</div>
+
+      <button id="mapBtn" class="nav-btn" aria-label="Bo‘limlar xaritasi">
+        ☰
+      </button>
+    </header>
+
+    <!-- PROGRESS -->
+    <div class="progress">
+      <div id="progressFill"></div>
+    </div>
+
+    <div class="app-layout">
+
+      <!-- SECTION MENU -->
+      <aside id="sectionMenu" class="section-menu">
+        <div class="menu-heading">
+          <h2>Sayohat xaritasi</h2>
+          <button id="closeMapBtn" class="close-btn" aria-label="Yopish">×</button>
+        </div>
+
+        <p class="menu-subtitle">Har bir sirga bir qadam yaqinroq.</p>
+
+        <div class="section-list">
+
+          <button class="section-link active" data-section="introSection">
+            <span class="section-icon">♡</span>
+            <span><b>01</b> Boshlanish</span>
+            <span class="section-status">✓</span>
+          </button>
+
+          <button class="section-link" data-section="memoriesSection">
+            <span class="section-icon">📸</span>
+            <span><b>02</b> Xotiralar</span>
+            <span class="section-status">→</span>
+          </button>
+
+          <button class="section-link" data-section="game1Section">
+            <span class="section-icon">🧠</span>
+            <span><b>03</b> Xotira o‘yini</span>
+            <span class="section-status">🔒</span>
+          </button>
+
+          <button class="section-link" data-section="game2Section">
+            <span class="section-icon">⚡</span>
+            <span><b>04</b> Tezkor sinov</span>
+            <span class="section-status">🔒</span>
+          </button>
+
+          <button class="section-link" data-section="game3Section">
+            <span class="section-icon">🧩</span>
+            <span><b>05</b> Sirli jumboq</span>
+            <span class="section-status">🔒</span>
+          </button>
+
+          <button class="section-link" data-section="secretSection">
+            <span class="section-icon">🔐</span>
+            <span><b>06</b> Yashirin xabar</span>
+            <span class="section-status">🔒</span>
+          </button>
+
+        </div>
+      </aside>
+
+
+      <!-- CONTENT -->
+      <div class="app-content">
+
+        <!-- SECTION 1: MEMORIES -->
+        <section id="memoriesSection" class="content-section">
+
+          <div class="section-heading">
+            <p class="memory-label">CHAPTER 01 · MEMORIES</p>
+            <h2>Xotiralar <span>galereyasi.</span></h2>
+            <p class="section-description">
+              Har bir suratni ko‘r. Keyingi sahnaga o‘tish uchun
+              tugmani bos.
+            </p>
+          </div>
+
+          <div class="photo-scene">
+            <div class="photo-frame">
+              <div class="photo-loader"></div>
+
+              <img
+                id="mainPhoto"
+                src="images/love1.jpg"
+                alt="Birinchi xotira"
+              >
+
+              <div class="photo-overlay"></div>
+              <div class="photo-number" id="photoNumber">01 / 10</div>
+            </div>
+
+            <div class="memory-text">
+              <p id="memoryLabel" class="memory-label">A SPECIAL MEMORY</p>
+              <h2 id="memoryTitle">Bir kichik xotira.</h2>
+              <p id="memoryDescription">
+                Ba'zi lahzalar suratga muhrlanadi,
+                lekin ularning ma'nosi qalbda qoladi.
+              </p>
+            </div>
+          </div>
+
+          <div class="navigation">
+            <button id="prevBtn" class="nav-btn" aria-label="Oldingi surat">←</button>
+
+            <span id="photoCounter">01 / 10</span>
+
+            <button id="nextBtn" class="next-btn">
+              <span>Keyingi xotira</span>
+              <span>→</span>
+            </button>
+          </div>
+
+          <div class="memory-dots" id="memoryDots" aria-label="Xotiralar"></div>
+
+          <div class="section-footer">
+            <p>Bir xotira tugaydi, boshqasi boshlanadi. ♡</p>
+            <button id="toGamesBtn" class="start-btn">
+              O‘yinlarga o‘tish <span>→</span>
+            </button>
+          </div>
+
+        </section>
+
+
+        <!-- SECTION 2: MEMORY GAME -->
+        <section id="game1Section" class="content-section game-section">
+          <div class="game-card">
+            <p class="memory-label">MINI GAME 01</p>
+            <div class="game-emoji">🧠</div>
+            <h2>Xotirani sinab ko‘r</h2>
+
+            <p>
+              Kartalarni och va bir xil belgilarni top.
+              Barcha juftliklarni topsang, keyingi bosqich ochiladi.
+            </p>
+
+            <div id="memoryGame" class="memory-game"></div>
+
+            <p id="memoryGameStatus" class="game-status" aria-live="polite">
+              Barcha juftliklarni top!
+            </p>
+
+            <button id="resetMemoryGame" class="restart-btn">
+              ↻ Qayta boshlash
+            </button>
+          </div>
+        </section>
+
+
+        <!-- SECTION 3: REACTION GAME -->
+        <section id="game2Section" class="content-section game-section">
+          <div class="game-card">
+            <p class="memory-label">MINI GAME 02</p>
+            <div class="game-emoji">⚡</div>
+            <h2>Tezkor sinov</h2>
+
+            <p>
+              Boshlash tugmasini bos. Belgini ko‘rganingda
+              uni imkon qadar tez bos!
+            </p>
+
+            <div id="reactionArena" class="reaction-arena">
+              <span id="reactionSymbol">✦</span>
+            </div>
+
+            <p id="reactionStatus" class="game-status" aria-live="polite">
+              Tayyor bo‘lsang, boshlaymiz.
+            </p>
+
+            <button id="reactionStartBtn" class="start-btn">
+              Boshlash →
+            </button>
+          </div>
+        </section>
+
+
+        <!-- SECTION 4: RIDDLE GAME -->
+        <section id="game3Section" class="content-section game-section">
+          <div class="game-card">
+            <p class="memory-label">MINI GAME 03</p>
+            <div class="game-emoji">🧩</div>
+            <h2>Sirli jumboq</h2>
+
+            <p>
+              Men ko‘rinmayman, ammo insonlarni yaqinlashtiraman.
+              Men nima?
+            </p>
+
+            <div class="riddle-options">
+              <button class="riddle-option" data-answer="time">Vaqt</button>
+              <button class="riddle-option" data-answer="care">Mehr</button>
+              <button class="riddle-option" data-answer="book">Kitob</button>
+            </div>
+
+            <p id="riddleStatus" class="game-status" aria-live="polite">
+              Javobni tanla.
+            </p>
+          </div>
+        </section>
+
+
+        <!-- SECTION 5: SECRET -->
+        <section id="secretSection" class="content-section game-section">
+          <div class="secret-lock">
+            <div class="lock">🔐</div>
+
+            <p class="memory-label">FINAL CHAPTER</p>
+            <h2>Yashirin xabar</h2>
+
+            <p class="section-description">
+              Sarguzashtning oxiriga yetib kelding.
+              To‘rt xonali kodni kiritsang, xabar ochiladi.
+            </p>
+
+            <form id="secretForm">
+              <label for="secretCode" class="sr-only">Maxfiy kod</label>
+
+              <input
+                id="secretCode"
+                class="code-input"
+                type="password"
+                inputmode="numeric"
+                pattern="[0-9]{4}"
+                maxlength="4"
+                placeholder="••••"
+                autocomplete="off"
+                required
+              >
+
+              <button class="code-btn" type="submit">
+                Xabarni ochish ↗
+              </button>
+            </form>
+
+            <p id="codeError" class="code-error" aria-live="polite"></p>
+
+            <div id="secretMessage" class="secret-message" hidden>
+              <div class="final-symbol">♡</div>
+              <p class="memory-label">JUST FOR YOU</p>
+              <h2>Sen uchun alohida xabar.</h2>
+
+              <p id="personalMessage">
+                Ba'zan insonga ko'p gaplar kerak emas.
+
+Shunchaki bir insonning borligi,
+uning kulishi, gapirishi va oddiygina “yaxshimisan?” deb so‘rashi ham yetarli bo‘ladi.
+
+Sen ham men uchun shunday insonsan.
+
+Sen menga keraksan. ❤️
+
+Sening samimiyliging, kulging, mehring va o'zingga xosliging menga juda yoqadi.
+
+Senda menga yoqadigan narsa faqat tashqi ko‘rinishing emas.
+Menga sening fe'l-atvoring, gapirish uslubing, kichkina odatlaring va o'zing bo‘lib qolishing yoqadi.
+
+Agar bu sahifani oxirigacha ko‘rgan bo‘lsang,
+demak, bu kichkina sirni bilishga arzigulik inson ekansan. :)
+
+Men hayotimdagi eng chiroyli xotiralardan ba'zilarini sen bilan bog‘lashni istayman.
+
+Shuni bilib qo‘y: sen men uchun oddiy inson emassan. ✨
+
+Va yana bir gap...
+
+Agar bir kuni o‘zingga bo‘lgan ishonching pasaysa,
+o‘zingdagi yaxshi tomonlarni unutib qo‘ysang,
+shu xabarni esla:
+
+Sen qadrlanishga, hurmat qilinishga va yaxshi munosabatga loyiqsan. 🤍
+
+Bu 10 ta surat esa shunchaki suratlar emas.
+Ular seni eslab, bu kichkina surprise'ni tayyorlaganimning 10 ta sababidir.
+
+Yaxshiyamki, sen borsan. ♡
+              </p>
+
+              <button id="restartBtn" class="restart-btn" type="button">
+                ↻ Boshidan ko‘rish
+              </button>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <div id="transition" class="transition" aria-hidden="true">
+    <div class="transition-line"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
