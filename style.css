@@ -1,0 +1,977 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #111;
+  color: #f5f2ef;
+  font-family: "DM Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+body.lock {
+  overflow: hidden;
+}
+
+button {
+  font-family: inherit;
+}
+
+
+/* =========================
+   LOADER
+========================= */
+
+.loader {
+  position: fixed;
+  inset: 0;
+  background: #111;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 1s ease;
+}
+
+.loader.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-logo {
+  width: 65px;
+  height: 65px;
+  border: 1px solid #777;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+}
+
+.loader-name {
+  margin-top: 20px;
+  font-size: 11px;
+  letter-spacing: 6px;
+}
+
+.loader-progress {
+  width: 150px;
+  height: 1px;
+  background: #444;
+  margin-top: 35px;
+}
+
+.loader-progress span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: white;
+}
+
+.loader-text {
+  margin-top: 12px;
+  color: #777;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  padding: 0 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 20;
+}
+
+.brand {
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255,255,255,.5);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+}
+
+.sound-button {
+  width: 45px;
+  height: 45px;
+  border: 1px solid rgba(255,255,255,.4);
+  background: rgba(0,0,0,.15);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  cursor: pointer;
+}
+
+.sound-button span {
+  width: 2px;
+  height: 10px;
+  background: white;
+  animation: sound 1s infinite alternate;
+}
+
+.sound-button span:nth-child(2) {
+  height: 16px;
+  animation-delay: .2s;
+}
+
+.sound-button span:nth-child(3) {
+  height: 7px;
+  animation-delay: .4s;
+}
+
+.sound-button.off span {
+  animation: none;
+  height: 2px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  position: relative;
+  height: 100svh;
+  min-height: 650px;
+  overflow: hidden;
+}
+
+.hero-image {
+  position: absolute;
+  inset: -5%;
+  background:
+    url("images/love1.jpg")
+    center center / cover no-repeat;
+  transform: scale(1.05);
+  animation: slowZoom 12s ease-out forwards;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,.78),
+      rgba(0,0,0,.25)
+    ),
+    linear-gradient(
+      0deg,
+      rgba(0,0,0,.8),
+      transparent 60%
+    );
+}
+
+.hero-content {
+  position: absolute;
+  z-index: 3;
+  left: 8%;
+  bottom: 14%;
+  max-width: 650px;
+}
+
+.eyebrow,
+.mini-title {
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: #aaa;
+  font-weight: 500;
+}
+
+.hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(65px, 12vw, 145px);
+  line-height: .82;
+  font-weight: 400;
+  margin: 30px 0;
+}
+
+.hero h1 em,
+h2 em {
+  color: #cbb7a3;
+  font-weight: 400;
+}
+
+.hero-content > p {
+  max-width: 380px;
+  color: #ccc;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+.discover {
+  margin-top: 40px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.4);
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.discover:hover {
+  background: white;
+  color: #111;
+}
+
+.hero-number {
+  position: absolute;
+  z-index: 3;
+  right: 7%;
+  bottom: 8%;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: #aaa;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.intro {
+  min-height: 700px;
+  background: #151515;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding: 150px 10%;
+}
+
+.section-number {
+  color: #666;
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+
+.intro-content {
+  max-width: 700px;
+}
+
+.intro h2,
+.story-heading h2,
+.marjona-content h2,
+.unlock-inner h2 {
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  font-size: clamp(55px, 8vw, 105px);
+  line-height: .95;
+  margin: 25px 0 45px;
+}
+
+.intro-text {
+  max-width: 500px;
+  color: #999;
+  font-size: 15px;
+  line-height: 2;
+}
+
+
+/* =========================
+   STORY
+========================= */
+
+.story {
+  background: #111;
+  padding: 150px 7%;
+}
+
+.story-heading {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin-bottom: 120px;
+}
+
+.story-heading h2 {
+  margin-bottom: 0;
+}
+
+.story-card {
+  max-width: 1050px;
+  margin: 0 auto 150px;
+  display: grid;
+  grid-template-columns: 1.3fr .7fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.story-card.reverse {
+  grid-template-columns: .7fr 1.3fr;
+}
+
+.story-card.reverse .story-image {
+  order: 2;
+}
+
+.story-card.reverse .story-info {
+  order: 1;
+}
+
+.story-image {
+  position: relative;
+  height: 650px;
+  overflow: hidden;
+  background: #222;
+}
+
+.story-image img,
+.wide-photo img,
+.small-photo img,
+.final-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s cubic-bezier(.2,.7,.2,1);
+}
+
+.story-image:hover img,
+.small-photo:hover img,
+.wide-photo:hover img {
+  transform: scale(1.04);
+}
+
+.image-number {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+.story-info span,
+.wide-caption span {
+  color: #777;
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+.story-info h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 48px;
+  font-weight: 400;
+  margin: 25px 0;
+}
+
+.story-info p {
+  color: #888;
+  max-width: 300px;
+  line-height: 1.8;
+}
+
+
+/* =========================
+   WIDE IMAGE
+========================= */
+
+.wide-photo {
+  max-width: 1200px;
+  height: 700px;
+  margin: 0 auto 150px;
+  position: relative;
+  overflow: hidden;
+}
+
+.wide-caption {
+  position: absolute;
+  left: 40px;
+  bottom: 40px;
+  z-index: 2;
+}
+
+.wide-caption h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 55px;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+
+/* =========================
+   SMALL GALLERY
+========================= */
+
+.small-gallery {
+  max-width: 1000px;
+  margin: 0 auto 150px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.small-photo {
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+
+.small-photo span {
+  position: absolute;
+  bottom: 12px;
+  left: 15px;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+
+/* =========================
+   FINAL GALLERY
+========================= */
+
+.final-gallery {
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.final-gallery div {
+  height: 600px;
+  overflow: hidden;
+}
+
+.final-gallery div:nth-child(2) {
+  margin-top: 120px;
+}
+
+
+/* =========================
+   MARJONA
+========================= */
+
+.marjona-section {
+  position: relative;
+  height: 90svh;
+  min-height: 650px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.marjona-background {
+  position: absolute;
+  inset: 0;
+  background:
+    url("images/love10.jpg")
+    center / cover;
+  filter: saturate(.7);
+}
+
+.marjona-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.62);
+}
+
+.marjona-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: 30px;
+}
+
+.marjona-content h2 {
+  font-size: clamp(70px, 13vw, 150px);
+  margin: 30px 0;
+}
+
+.marjona-content > p {
+  max-width: 400px;
+  margin: auto;
+  color: #bbb;
+  line-height: 1.8;
+}
+
+.line {
+  width: 1px;
+  height: 70px;
+  background: #888;
+  margin: 50px auto 0;
+}
+
+
+/* =========================
+   UNLOCK
+========================= */
+
+.unlock-section {
+  background: #181818;
+  min-height: 800px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.unlock-inner {
+  max-width: 600px;
+}
+
+.lock-icon {
+  font-size: 45px;
+  color: #cbb7a3;
+}
+
+.unlock-inner h2 {
+  margin: 30px 0;
+}
+
+.unlock-description {
+  color: #888;
+  line-height: 1.8;
+}
+
+.unlock-button {
+  margin-top: 40px;
+  border: 1px solid #555;
+  color: white;
+  background: transparent;
+  padding: 18px 25px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.unlock-button span {
+  margin-left: 30px;
+}
+
+.unlock-button:hover {
+  background: white;
+  color: #111;
+}
+
+
+/* =========================
+   PIN MODAL
+========================= */
+
+.pin-modal,
+.message-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0,0,0,.88);
+  backdrop-filter: blur(18px);
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: .4s;
+}
+
+.pin-modal.show,
+.message-modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.pin-box {
+  width: min(370px, 100%);
+  background: #191919;
+  border: 1px solid #333;
+  padding: 45px 30px 30px;
+  text-align: center;
+  position: relative;
+}
+
+.pin-close,
+.message-close {
+  position: absolute;
+  right: 18px;
+  top: 14px;
+  background: transparent;
+  color: #777;
+  border: 0;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.pin-lock {
+  color: #cbb7a3;
+  font-size: 35px;
+}
+
+.pin-label {
+  font-size: 8px;
+  letter-spacing: 4px;
+  color: #777;
+  margin-top: 15px;
+}
+
+.pin-box h3 {
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  font-size: 32px;
+  margin-top: 10px;
+}
+
+.pin-subtitle {
+  color: #666;
+  font-size: 11px;
+  margin-top: 8px;
+}
+
+.pin-dots {
+  display: flex;
+  justify-content: center;
+  gap: 13px;
+  margin: 30px 0;
+}
+
+.pin-dots i {
+  display: block;
+  width: 9px;
+  height: 9px;
+  border: 1px solid #777;
+  border-radius: 50%;
+}
+
+.pin-dots i.active {
+  background: #cbb7a3;
+  border-color: #cbb7a3;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.keypad button {
+  height: 55px;
+  background: #222;
+  border: 1px solid #292929;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: .2s;
+}
+
+.keypad button:hover {
+  background: #333;
+}
+
+.keypad .empty {
+  background: transparent;
+  border: 0;
+  cursor: default;
+}
+
+.wrong-code {
+  height: 15px;
+  color: #d97878;
+  font-size: 10px;
+  margin-top: 15px;
+  opacity: 0;
+}
+
+.wrong-code.show {
+  opacity: 1;
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message-box {
+  position: relative;
+  width: min(600px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #f2eee9;
+  color: #181818;
+  padding: 60px 45px;
+  text-align: center;
+}
+
+.message-heart {
+  font-family: Georgia, serif;
+  font-size: 55px;
+  color: #8c6654;
+}
+
+.message-box .mini-title {
+  color: #777;
+  margin-top: 15px;
+}
+
+.message-box h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(45px, 10vw, 75px);
+  font-weight: 400;
+  line-height: .95;
+  margin: 30px 0;
+}
+
+.message-box h2 em {
+  color: #8c6654;
+}
+
+.message-line {
+  width: 50px;
+  height: 1px;
+  background: #aaa;
+  margin: 30px auto;
+}
+
+.letter {
+  color: #666;
+  line-height: 1.9;
+  font-size: 14px;
+}
+
+.signature {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  margin-top: 35px;
+  color: #8c6654;
+}
+
+
+/* =========================
+   IMAGE VIEWER
+========================= */
+
+.image-viewer {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.96);
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  padding: 30px;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+}
+
+.image-viewer.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.image-viewer img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+#viewerClose {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  background: transparent;
+  border: 0;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  padding: 80px 20px;
+  background: #0d0d0d;
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: "Playfair Display", serif;
+  font-size: 35px;
+}
+
+footer p {
+  color: #555;
+  font-size: 10px;
+  margin: 15px 0;
+  letter-spacing: 2px;
+}
+
+footer span {
+  color: #cbb7a3;
+}
+
+
+/* =========================
+   REVEAL
+========================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition:
+    opacity 1s ease,
+    transform 1s cubic-bezier(.2,.7,.2,1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes slowZoom {
+  from {
+    transform: scale(1.05);
+  }
+
+  to {
+    transform: scale(1.15);
+  }
+}
+
+@keyframes sound {
+  from {
+    transform: scaleY(.5);
+  }
+
+  to {
+    transform: scaleY(1.4);
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width: 700px) {
+
+  .topbar {
+    padding: 0 20px;
+  }
+
+  .hero-content {
+    left: 20px;
+    right: 20px;
+    bottom: 12%;
+  }
+
+  .hero h1 {
+    font-size: 72px;
+  }
+
+  .intro,
+  .story-heading {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .intro {
+    padding: 100px 25px;
+  }
+
+  .story {
+    padding: 100px 20px;
+  }
+
+  .story-heading {
+    margin-bottom: 80px;
+  }
+
+  .story-card,
+  .story-card.reverse {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    margin-bottom: 100px;
+  }
+
+  .story-card.reverse .story-image,
+  .story-card.reverse .story-info {
+    order: initial;
+  }
+
+  .story-image {
+    height: 500px;
+  }
+
+  .story-info h3 {
+    font-size: 38px;
+  }
+
+  .wide-photo {
+    height: 500px;
+    margin-bottom: 100px;
+  }
+
+  .wide-caption {
+    left: 20px;
+    bottom: 25px;
+  }
+
+  .wide-caption h3 {
+    font-size: 38px;
+  }
+
+  .small-gallery {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 100px;
+  }
+
+  .small-photo {
+    height: 280px;
+  }
+
+  .final-gallery {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .final-gallery div,
+  .final-gallery div:nth-child(2) {
+    height: 500px;
+    margin-top: 0;
+  }
+
+  .marjona-content h2 {
+    font-size: 80px;
+  }
+
+  .unlock-section {
+    min-height: 700px;
+  }
+
+  .message-box {
+    padding: 50px 25px;
+  }
+
+}
