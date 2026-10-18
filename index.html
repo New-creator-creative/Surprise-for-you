@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Marjona uchun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <section class="stage" id="intro">
+    <h1 id="name"></h1>
+    <p class="soft">Bu sahifa faqat sen uchun.</p>
+    <button class="pearl" id="pearl" aria-label="Marvaridga tegin"></button>
+    <p class="soft">Marvaridga tegin</p>
+  </section>
+
+  <section class="stage" id="reasons" hidden>
+    <p class="count" id="count"></p>
+    <p class="reason" id="reason" aria-live="polite"></p>
+    <button class="btn" id="next">Keyingisi</button>
+  </section>
+
+  <section class="stage" id="game" hidden>
+    <h2>Yuraklarni tut!</h2>
+    <p class="soft">Hammasi sen uchun uchib kelyapti. 10 tasini tut.</p>
+    <p class="count" id="score">0 / 10</p>
+    <div class="field" id="field"></div>
+    <button class="btn" id="afterGame" hidden>Davom etish</button>
+  </section>
+
+  <section class="stage" id="comp" hidden>
+    <h2>Iltifot mashinasi</h2>
+    <p class="reason small" id="compText" aria-live="polite">Tugmani bos</p>
+    <div class="row">
+      <button class="btn" id="compBtn">Iltifot ol</button>
+      <button class="btn no" id="afterComp">Xatga oʻtish</button>
+    </div>
+  </section>
+
+  <section class="stage" id="letterStage" hidden>
+    <div class="letter" id="letter"></div>
+    <button class="btn" id="toAsk">Davom etish</button>
+  </section>
+
+  <section class="stage" id="ask" hidden>
+    <h2 id="q"></h2>
+    <div class="row">
+      <button class="btn yes" id="yes">Ha, sevaman</button>
+      <button class="btn no" id="no">Yoʻq</button>
+    </div>
+  </section>
+
+  <section class="stage" id="thanks" hidden>
+    <h2>Rahmat, Marjona.</h2>
+    <p class="soft">Sen mening eng katta baxtimsan.</p>
+    <button class="btn" id="again">Boshidan koʻrish</button>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
